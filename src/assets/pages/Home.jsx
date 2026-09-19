@@ -1,0 +1,26 @@
+const Home = () => {
+    return(
+        <div className="flex flex-col items-center justify-center py-8">
+            <div className="bg-sky-100 p-4 rounded-full text-sky-500 mb-4 shadow-inner">
+                <i className="fa-solid fa-cloud-sun text-4xl"></i>
+            </div>
+            <h1 className="text-2xl font-bold text-slate-800 mb-2">Check the Weather</h1>
+            <p className="text-slate-500 text-sm mb-6 text-center">Enter a city name to get real-time atmospheric updates.</p>
+            
+            <form className="w-full flex flex-col gap-4">
+                <div className="relative">
+                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="city-input" placeholder="e.g., London, Tokyo, New York" required
+                        className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition"/>
+                </div>
+                <button type="submit" 
+                    className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 rounded-xl shadow-lg shadow-sky-500/30 transition duration-200">
+                    Get Weather
+                </button>
+            </form>
+        </div>
+    );
+}
+export default Home;
