@@ -1,8 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWind, faSun, faDroplet, faTemperatureHalf, faArrowLeft, faCloudRain, faSmog, faSnowflake, faThunderstorm } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import { getWeather } from '../services/get-weather';
-import { faCloud } from '@fortawesome/free-solid-svg-icons/faCloud';
 const WeatherReport = ({cityName,citySubmitted}) => {
     //console.log(cityName);
     const [locationData, setLocationData]= useState('');
@@ -60,16 +57,16 @@ const WeatherReport = ({cityName,citySubmitted}) => {
             <div className="text-center mb-6">
                 <h2 className="text-2xl font-bold text-slate-800">{locationData.results[0].name}</h2>
                 <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">{locationData.results[0].country}</p>
-                <div className="my-4 bg-sky-100 p-4 rounded-full text-sky-500 shadow-inner">
-                    <FontAwesomeIcon icon={
-                        (weatherData.icon=='clear')?faSun:
-                        (weatherData.icon=='partly_cloudy')?faCloud:
-                        (weatherData.icon=='cloudy')?faCloud:
-                        (weatherData.icon=='fog')?faSmog:
-                        (weatherData.icon=='rain')?faCloudRain:
-                        (weatherData.icon=='snow')?faSnowflake:
-                        (weatherData.icon=='storm')?faThunderstorm:faSun
-                        } className="text-6xl drop-shadow-md" />
+                <div className="my-4 bg-sky-100 p-4 rounded-full text-sky-500 shadow-inner text-7xl">
+                    { 
+                        (weatherData.icon=='clear')?<span>☀️</span>:
+                        (weatherData.icon=='partly_cloudy')?<span>⛅️</span>:
+                        (weatherData.icon=='cloudy')?<span>☁️</span>:
+                        (weatherData.icon=='fog')?<span>🌫️</span>:
+                        (weatherData.icon=='rain')?<span>🌧️</span>:
+                        (weatherData.icon=='snow')?<span>❄️</span>:
+                        (weatherData.icon=='storm')?<span>⛈️</span>:<span>☀️</span>
+                    }
                     
                 </div>
                 <div className="text-5xl font-extrabold text-slate-800 mb-1"><span>{weatherData.temperature}</span>°C</div>
@@ -78,7 +75,7 @@ const WeatherReport = ({cityName,citySubmitted}) => {
             <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="bg-slate-50 border border-slate-100 p-3.5 rounded-xl flex items-center gap-3">
                     <div className="bg-sky-100 text-sky-500 p-2.5 rounded-lg">
-                        <FontAwesomeIcon icon={faWind} className="drop-shadow-md" />
+                        🍃
                     </div>
                     <div>
                         <p className="text-sm text-slate-600 font-medium">Wind Speed</p>
@@ -87,7 +84,7 @@ const WeatherReport = ({cityName,citySubmitted}) => {
                 </div>
                 <div className="bg-slate-50 border border-slate-100 p-3.5 rounded-xl flex items-center gap-3">
                     <div className="bg-teal-100 text-teal-500 p-2.5 rounded-lg">
-                        <FontAwesomeIcon icon={faDroplet} className="drop-shadow-md" />
+                        💧
                     </div>
                     <div>
                         <p className="text-sm text-slate-600 font-medium">Humidity</p>
@@ -96,7 +93,7 @@ const WeatherReport = ({cityName,citySubmitted}) => {
                 </div>
                 <div className="bg-slate-50 border border-slate-100 p-3.5 rounded-xl flex items-center gap-3">
                     <div className="bg-amber-100 text-amber-500 p-2.5 rounded-lg">
-                        <FontAwesomeIcon icon={faTemperatureHalf} className="drop-shadow-md" />
+                        🌡️
                     </div>
                     <div>
                         <p className="text-sm text-slate-600 font-medium">Feels Like</p>
@@ -105,7 +102,7 @@ const WeatherReport = ({cityName,citySubmitted}) => {
                 </div>
                 <div className="bg-slate-50 border border-slate-100 p-3.5 rounded-xl flex items-center gap-3">
                     <div className="bg-indigo-100 text-indigo-500 p-2.5 rounded-lg">
-                        <FontAwesomeIcon icon={faCloudRain} className="drop-shadow-md" />
+                        🌧️
                     </div>
                     <div>
                         <p className="text-sm text-slate-600 font-medium">Rain</p>
@@ -115,7 +112,7 @@ const WeatherReport = ({cityName,citySubmitted}) => {
             </div>
             <button className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 rounded-xl shadow-lg shadow-sky-500/30 transition duration-200 hover:cursor-pointer"
                     onClick={citySubmitted}>
-                <FontAwesomeIcon icon={faArrowLeft} className="drop-shadow-md" /> Back to search
+                ⬅️ Back to search
             </button>
         </div>
     );
