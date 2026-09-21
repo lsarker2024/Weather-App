@@ -10,7 +10,9 @@ bash code
 ```
 npm i --save @fortawesome/fontawesome-svg-core @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
 ```
-Use code with caution.(If you use Yarn, replace npm i --save with yarn add.)Step 2: Use the Icons in Your ComponentImport the FontAwesomeIcon component alongside whichever specific icon you want to use. Font Awesome uses camelCase naming for icons in React (e.g., faHouse, faReact).
+Use code with caution.(If you use Yarn, replace npm i --save with yarn add.)
+
+Step 2: Use the Icons in Your ComponentImport the FontAwesomeIcon component alongside whichever specific icon you want to use. Font Awesome uses camelCase naming for icons in React (e.g., faHouse, faReact).
 
 jsx code
 ```
