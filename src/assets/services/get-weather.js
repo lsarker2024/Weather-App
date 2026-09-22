@@ -195,8 +195,8 @@ export const getWeather = async (lat,lon) => {
 
   const weather = WMO_CODES[now.weather_code];
 
-  const icon =
-    weather.icon === "clear" && now.is_day === 0 ? "clear_night" : weather.icon;
+  //const icon = weather.icon === "clear" && now.is_day === 0 ? "clear_night" : weather.icon;
+  const icon = weather.icon;
 
   return {
     temperature: Math.round(now.temperature_2m),

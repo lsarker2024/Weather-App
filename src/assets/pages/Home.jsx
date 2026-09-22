@@ -14,7 +14,7 @@ const Home = () => {
         <div className="flex flex-col items-center justify-center py-8">
             <div className="bg-sky-300 p-4 rounded-full text-sky-300 mb-4 shadow-inner">
                 <WeatherAnimation
-                    iconName="clear"
+                    iconName="day_night" 
                     className="my-1 w-[190px] h-[190px]" 
                 />
             </div>

@@ -32,9 +32,9 @@ const WeatherReport = ({cityName,citySubmitted}) => {
             const fetchWeather = async()=>{
                     try {
                         const result = await getWeather(locationData.results[0].latitude, locationData.results[0].longitude)
-                        console.log(result);
+                        //console.log(result);
                         setWeatherData(result)
-                        console.log(weatherData);
+                        //console.log(weatherData);
                         setIsWDataLoading(false);
                     } catch (error) {
                         console.log(error);
@@ -43,8 +43,6 @@ const WeatherReport = ({cityName,citySubmitted}) => {
 
             fetchWeather();
         }
-       // const theWeather = getWeather(locationData.results[0].latitude, locationData.results[0].longitude);
-       
     }
 
     if(isWDataLoading){
@@ -62,7 +60,7 @@ const WeatherReport = ({cityName,citySubmitted}) => {
                 <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">{locationData.results[0].country}</p>
                 <div className="my-4 bg-sky-300 p-4 rounded-full text-sky-300 shadow-inner">
                     
-                    <WeatherAnimation iconName={weatherData?.icon} className="my-1 w-[270px] h-[270px] max-[480px]:w-[190px] max-[480px]:h-[190px]" />
+                    <WeatherAnimation iconName={weatherData?.icon} isDay={weatherData?.isDay} className="my-1 w-[270px] h-[270px] max-[480px]:w-[190px] max-[480px]:h-[190px]" />
                     
                 </div>
                 <div className="text-5xl font-extrabold text-slate-800 mb-1"><span>{weatherData.temperature}</span>°C</div>
