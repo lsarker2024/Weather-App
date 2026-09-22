@@ -1,7 +1,6 @@
 import { useState } from "react";
 import WeatherReport from "./WeatherReport";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudSun } from "@fortawesome/free-solid-svg-icons";
+import WeatherAnimation from "../components/WeatherAnimation";
 
 const Home = () => {
     const [cityName,setCityName] = useState('');
@@ -13,8 +12,11 @@ const Home = () => {
     }
     return(
         <div className="flex flex-col items-center justify-center py-8">
-            <div className="bg-sky-100 p-4 rounded-full text-sky-500 mb-4 shadow-inner">
-                <FontAwesomeIcon icon={faCloudSun} className="text-4xl" />
+            <div className="bg-sky-300 p-4 rounded-full text-sky-300 mb-4 shadow-inner">
+                <WeatherAnimation
+                    iconName="clear"
+                    className="my-1 w-[190px] h-[190px]" 
+                />
             </div>
             <h1 className="text-2xl font-bold text-slate-800 mb-2">Check the Weather</h1>
             <p className="text-slate-500 text-sm mb-6 text-center">Enter a city name to get real-time atmospheric updates.</p>

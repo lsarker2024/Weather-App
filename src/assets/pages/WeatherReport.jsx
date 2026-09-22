@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWind, faSun, faDroplet, faTemperatureHalf, faArrowLeft, faCloudRain, faSmog, faSnowflake, faThunderstorm } from '@fortawesome/free-solid-svg-icons';
+import { faWind, faDroplet, faTemperatureHalf, faArrowLeft, faCloudRain } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import { getWeather } from '../services/get-weather';
-import { faCloud } from '@fortawesome/free-solid-svg-icons/faCloud';
+import WeatherAnimation from '../components/WeatherAnimation';
 const WeatherReport = ({cityName,citySubmitted}) => {
     //console.log(cityName);
     const [locationData, setLocationData]= useState('');
@@ -60,16 +60,9 @@ const WeatherReport = ({cityName,citySubmitted}) => {
             <div className="text-center mb-6">
                 <h2 className="text-2xl font-bold text-slate-800">{locationData.results[0].name}</h2>
                 <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">{locationData.results[0].country}</p>
-                <div className="my-4 bg-sky-100 p-4 rounded-full text-sky-500 shadow-inner">
-                    <FontAwesomeIcon icon={
-                        (weatherData.icon=='clear')?faSun:
-                        (weatherData.icon=='partly_cloudy')?faCloud:
-                        (weatherData.icon=='cloudy')?faCloud:
-                        (weatherData.icon=='fog')?faSmog:
-                        (weatherData.icon=='rain')?faCloudRain:
-                        (weatherData.icon=='snow')?faSnowflake:
-                        (weatherData.icon=='storm')?faThunderstorm:faSun
-                        } className="text-6xl drop-shadow-md" />
+                <div className="my-4 bg-sky-300 p-4 rounded-full text-sky-300 shadow-inner">
+                    
+                    <WeatherAnimation iconName={weatherData?.icon} className="my-1 w-[270px] h-[270px] max-[480px]:w-[190px] max-[480px]:h-[190px]" />
                     
                 </div>
                 <div className="text-5xl font-extrabold text-slate-800 mb-1"><span>{weatherData.temperature}</span>°C</div>
